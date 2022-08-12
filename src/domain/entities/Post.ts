@@ -1,15 +1,16 @@
 import AbstractEntity from "./AbstractEntity";
-import { right, Right } from "../shared/either";
+import { right, Right } from "../../shared/either";
 
 export type Post = {
-  id?: string;
+  _id?: string;
   title: string;
   description: string;
   createdAt: Date;
   updatedAt: Date;
 };
 
-export type InputCreatePostEntity = Omit<Post, "createdAt" | "updatedAt">;
+export type InputCreatePostEntity = Pick<Post, "title" | "description">;
+
 export type InputUpdatePostEntity = Partial<InputCreatePostEntity>;
 
 export class PostEntity extends AbstractEntity<Post> {
@@ -18,7 +19,7 @@ export class PostEntity extends AbstractEntity<Post> {
 
     const post = new PostEntity({
       ...props,
-      id: undefined,
+      _id: undefined,
       createdAt: currentDate,
       updatedAt: currentDate,
     });

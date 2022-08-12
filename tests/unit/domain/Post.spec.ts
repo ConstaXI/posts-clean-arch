@@ -1,9 +1,9 @@
-import { PostEntity } from "../../../src/models/Post";
+import { PostEntity } from "../../../src/domain/entities/Post";
 import {
   fakeInputCreatePostEntity,
   fakeInputUpdatePostEntity,
   makeFakePostEntity,
-} from "../../mocks/fakes/post/PostEntity";
+} from "../../fakes/post/PostEntity";
 
 describe("PostEntity", () => {
   describe("create", () => {
