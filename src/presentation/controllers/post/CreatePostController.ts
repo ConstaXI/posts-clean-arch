@@ -1,14 +1,15 @@
 import AbstractController from "../AbstractController";
-import { Post } from "../../../domain/entities/Post";
+import { InputCreatePostEntity, Post } from "../../../domain/entities/Post";
 import { Either, left, right } from "../../../shared/either";
 import Err from "../../../shared/IError";
-import InputCreatePostController from "../../serializers/post/InputCreatePostController";
+import CreatePostValidator from "../../serializers/post/CreatePostValidator";
 import CreatePostUseCase from "../../../business/useCases/post/CreatePostUseCase";
+import ValidationErrors from "../../../domain/errors/ValidationErrors";
 
 type OutputCreatePostController = Either<Err, Post>;
 
 export default class CreatePostController extends AbstractController<
-  InputCreatePostController,
+  InputCreatePostEntity,
   OutputCreatePostController
 > {
   constructor(private readonly createPostUseCase: CreatePostUseCase) {
@@ -16,11 +17,15 @@ export default class CreatePostController extends AbstractController<
   }
 
   async handle(
-    input: InputCreatePostController
+    input: InputCreatePostEntity
   ): Promise<OutputCreatePostController> {
-    const instance = new InputCreatePostController(input);
+    const instance = new CreatePostValidator(input);
 
-    this.validate(instance);
+    const hasErr = this.validate(instance);
+
+    if (hasErr) {
+      return left(ValidationErrors.validationError(hasErr));
+    }
 
     const post = await this.createPostUseCase.execute(input);
 

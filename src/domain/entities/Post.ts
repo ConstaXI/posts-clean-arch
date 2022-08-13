@@ -5,11 +5,15 @@ export type Post = {
   _id?: string;
   title: string;
   description: string;
+  tags: string[];
   createdAt: Date;
   updatedAt: Date;
 };
 
-export type InputCreatePostEntity = Pick<Post, "title" | "description">;
+export type InputCreatePostEntity = Pick<
+  Post,
+  "title" | "description" | "tags"
+>;
 
 export type InputUpdatePostEntity = Partial<InputCreatePostEntity>;
 

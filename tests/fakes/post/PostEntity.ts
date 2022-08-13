@@ -8,6 +8,7 @@ import { InputCreatePostUseCase } from "../../../src/business/dto/useCases/post/
 export const fakeInputCreatePostEntity: InputCreatePostEntity = {
   title: "Fake Title",
   description: "Fake description",
+  tags: ["coolPost", "awesome", "yo"],
 };
 
 export const fakeInputUpdatePostEntity: InputUpdatePostEntity = {
@@ -15,6 +16,10 @@ export const fakeInputUpdatePostEntity: InputUpdatePostEntity = {
 };
 
 export const fakeInputCreatePostUseCase: InputCreatePostUseCase = {
+  ...fakeInputCreatePostEntity,
+};
+
+export const fakeInputCreatePostController = {
   ...fakeInputCreatePostEntity,
 };
 
