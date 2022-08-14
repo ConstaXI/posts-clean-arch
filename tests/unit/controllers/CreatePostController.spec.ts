@@ -30,7 +30,7 @@ describe("CreatePostUseCase", () => {
     const post = await controller.handle(
       new CreatePostValidator({
         title: "",
-        description: "",
+        body: "",
         tags: [],
       })
     );

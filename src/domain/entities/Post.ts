@@ -5,14 +5,11 @@ import { Timestamp } from "./timestamp";
 export type Post = {
   id?: string;
   title: string;
-  description: string;
+  body: string;
   tags: string[];
 } & Timestamp;
 
-export type InputCreatePostEntity = Pick<
-  Post,
-  "title" | "description" | "tags"
->;
+export type InputCreatePostEntity = Pick<Post, "title" | "body" | "tags">;
 
 export type InputUpdatePostEntity = Partial<InputCreatePostEntity>;
 

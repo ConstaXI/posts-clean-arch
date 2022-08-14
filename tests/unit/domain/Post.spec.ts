@@ -21,8 +21,8 @@ describe("PostEntity", () => {
         ...post,
         ...fakeInputUpdatePostEntity,
       });
-      expect(updatedPost.value.export().description).toBe(
-        fakeInputUpdatePostEntity.description
+      expect(updatedPost.value.export().body).toBe(
+        fakeInputUpdatePostEntity.body
       );
       expect(updatedPost.value.export().updatedAt).not.toBe(
         post.export().updatedAt

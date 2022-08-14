@@ -9,12 +9,12 @@ import { InputFindPostByIdController } from "../../../src/presentation/serialize
 
 export const fakeInputCreatePostEntity: InputCreatePostEntity = {
   title: "Fake Title",
-  description: "Fake description",
+  body: "Fake description",
   tags: ["coolPost", "awesome", "yo"],
 };
 
 export const fakeInputUpdatePostEntity: InputUpdatePostEntity = {
-  description: "Updated fake description",
+  body: "Updated fake description",
 };
 
 export const fakeInputCreatePostUseCase: InputCreatePostUseCase = {
