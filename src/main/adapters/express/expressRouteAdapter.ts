@@ -16,11 +16,11 @@ const adaptRoute = (
 
     if (result.isLeft()) {
       res.status(result.value.statusCode).json(result.value.body);
+    } else {
+      const status = result.value ? 200 : 204;
+
+      res.status(status).json(result.value);
     }
-
-    const status = result.value ? 200 : 204;
-
-    res.status(status).json(result.value);
   };
 };
 

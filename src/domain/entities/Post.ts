@@ -1,14 +1,13 @@
 import AbstractEntity from "./AbstractEntity";
 import { right, Right } from "../../shared/either";
+import { Timestamp } from "./timestamp";
 
 export type Post = {
-  _id?: string;
+  id?: string;
   title: string;
   description: string;
   tags: string[];
-  createdAt: Date;
-  updatedAt: Date;
-};
+} & Timestamp;
 
 export type InputCreatePostEntity = Pick<
   Post,
@@ -23,7 +22,7 @@ export class PostEntity extends AbstractEntity<Post> {
 
     const post = new PostEntity({
       ...props,
-      _id: undefined,
+      id: undefined,
       createdAt: currentDate,
       updatedAt: currentDate,
     });

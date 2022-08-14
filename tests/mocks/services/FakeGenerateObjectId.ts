@@ -1,6 +1,6 @@
-import { IGenerateObjectId } from "../../../src/business/services/IGenerateObjectId";
+import { IGenerateUuid } from "../../../src/business/services/IGenerateUuid";
 
-export default class FakeGenerateObjectId implements IGenerateObjectId {
+export default class FakeGenerateObjectId implements IGenerateUuid {
   generate(): string {
     return "fakeGeneratedId";
   }

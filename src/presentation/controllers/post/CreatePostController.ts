@@ -4,7 +4,7 @@ import { Either, left, right } from "../../../shared/either";
 import Err from "../../../shared/IError";
 import CreatePostValidator from "../../serializers/post/CreatePostValidator";
 import CreatePostUseCase from "../../../business/useCases/post/CreatePostUseCase";
-import ValidationErrors from "../../../domain/errors/ValidationErrors";
+import validationError from "../../../domain/errors/validationError";
 
 type OutputCreatePostController = Either<Err, Post>;
 
@@ -24,7 +24,7 @@ export default class CreatePostController extends AbstractController<
     const hasErr = this.validate(instance);
 
     if (hasErr) {
-      return left(ValidationErrors.validationError(hasErr));
+      return left(validationError(hasErr));
     }
 
     const post = await this.createPostUseCase.execute(input);

@@ -5,14 +5,14 @@ import {
 } from "../../dto/useCases/post/create";
 import ISavePost from "../../repositories/post/ISavePost";
 import { PostEntity } from "../../../domain/entities/Post";
-import { left, right } from "../../../shared/either";
-import { IGenerateObjectId } from "../../services/IGenerateObjectId";
+import { right } from "../../../shared/either";
+import { IGenerateUuid } from "../../services/IGenerateUuid";
 
 export default class CreatePostUseCase
   implements IUseCase<InputCreatePostUseCase, OutputCreatePostUseCase>
 {
   constructor(
-    private generateObjectId: IGenerateObjectId,
+    private generateObjectId: IGenerateUuid,
     private postRepository: ISavePost
   ) {}
 
@@ -21,14 +21,10 @@ export default class CreatePostUseCase
   ): Promise<OutputCreatePostUseCase> {
     const post = PostEntity.create(props);
 
-    const isErr = await this.postRepository.save({
+    await this.postRepository.save({
       ...post.value.export(),
-      _id: this.generateObjectId.generate(),
+      id: this.generateObjectId.generate(),
     });
-
-    if (isErr.isLeft()) {
-      return left(isErr.value);
-    }
 
     return right(post.value);
   }

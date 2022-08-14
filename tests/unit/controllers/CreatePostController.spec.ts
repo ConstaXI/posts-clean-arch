@@ -5,7 +5,7 @@ import FakeGenerateObjectId from "../../mocks/services/FakeGenerateObjectId";
 import { Post } from "../../../src/domain/entities/Post";
 import CreatePostController from "../../../src/presentation/controllers/post/CreatePostController";
 import CreatePostValidator from "../../../src/presentation/serializers/post/CreatePostValidator";
-import ValidationErrors from "../../../src/domain/errors/ValidationErrors";
+import Err from "../../../src/shared/IError";
 
 describe("CreatePostUseCase", () => {
   let controller: CreatePostController;
@@ -35,8 +35,6 @@ describe("CreatePostUseCase", () => {
       })
     );
     expect(post.isLeft()).toBeTruthy();
-    expect((post.value as ValidationErrors).body.details).toHaveProperty(
-      "length"
-    );
+    expect((post.value as Err).body.details).toHaveProperty("length");
   });
 });

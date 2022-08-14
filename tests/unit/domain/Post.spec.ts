@@ -18,14 +18,14 @@ describe("PostEntity", () => {
     it("Should be able to update a Post and change updatedAt", () => {
       const post = makeFakePostEntity();
       const updatedPost = PostEntity.update({
-        ...post.value.export(),
+        ...post,
         ...fakeInputUpdatePostEntity,
       });
       expect(updatedPost.value.export().description).toBe(
         fakeInputUpdatePostEntity.description
       );
       expect(updatedPost.value.export().updatedAt).not.toBe(
-        post.value.export().updatedAt
+        post.export().updatedAt
       );
     });
   });

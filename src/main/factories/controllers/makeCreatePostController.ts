@@ -1,6 +1,6 @@
 import CreatePostController from "../../../presentation/controllers/post/CreatePostController";
-import makeCreatePostUseCaseFactory from "../useCases/createPostUseCaseFactory";
+import makeCreatePostUseCase from "../useCases/makeCreatePostUseCase";
 
 export default function makeCreatePostController() {
-  return new CreatePostController(makeCreatePostUseCaseFactory());
+  return new CreatePostController(makeCreatePostUseCase());
 }

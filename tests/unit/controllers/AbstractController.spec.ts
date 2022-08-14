@@ -1,9 +1,9 @@
 import { IsEmail, IsString, MinLength } from "class-validator";
-import ValidationErrors from "../../../src/domain/errors/ValidationErrors";
 import AbstractController from "../../../src/presentation/controllers/AbstractController";
 import AbstractSerializer from "../../../src/presentation/serializers/AbstractSerializer";
 import { Either, left, right } from "../../../src/shared/either";
 import Err from "../../../src/shared/IError";
+import validationError from "../../../src/domain/errors/validationError";
 
 describe("Abstract Operator", () => {
   type FakeInput = {
@@ -35,7 +35,7 @@ describe("Abstract Operator", () => {
       const errors = this.validate(instance);
 
       if (errors) {
-        return left(ValidationErrors.validationError(errors));
+        return left(validationError(errors));
       }
 
       return right(undefined);
