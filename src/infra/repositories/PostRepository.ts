@@ -15,9 +15,11 @@ import {
   InputFindAll,
   OutputFindAll,
 } from "../../business/dto/repositories/post/findAll";
+import IDeletePost from "../../business/repositories/post/IDeletePost";
+import { InputDeletePost } from "../../business/dto/repositories/post/delete";
 
 export default class PostRepository
-  implements ISavePost, IFindPostBy, IFindAllPosts
+  implements ISavePost, IFindPostBy, IFindAllPosts, IDeletePost
 {
   async save(post: InputSavePostRepository): Promise<OutputSavePostRepository> {
     const collection = await MongoHelper.getCollection("post");
@@ -51,5 +53,11 @@ export default class PostRepository
       page,
       results: posts,
     };
+  }
+
+  async delete(input: InputDeletePost): Promise<void> {
+    const collection = await MongoHelper.getCollection("post");
+
+    await collection.deleteOne({ id: input.id });
   }
 }

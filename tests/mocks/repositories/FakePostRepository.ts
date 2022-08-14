@@ -14,9 +14,14 @@ import {
   InputFindAll,
   OutputFindAll,
 } from "../../../src/business/dto/repositories/post/findAll";
+import IDeletePost from "../../../src/business/repositories/post/IDeletePost";
+import {
+  InputDeletePost,
+  OutputDeletePost,
+} from "../../../src/business/dto/repositories/post/delete";
 
 export default class FakePostRepository
-  implements ISavePost, IFindPostBy, IFindAllPosts
+  implements ISavePost, IFindPostBy, IFindAllPosts, IDeletePost
 {
   save(_post: InputSavePostRepository): Promise<OutputSavePostRepository> {
     return Promise.resolve();
@@ -33,6 +38,10 @@ export default class FakePostRepository
       results: [makeFakePostEntity().export()],
     });
   }
+
+  delete(_input: InputDeletePost): Promise<OutputDeletePost> {
+    return Promise.resolve();
+  }
 }
 
 export const fakePostRepositorySave = jest.spyOn(
@@ -48,4 +57,9 @@ export const fakePostRepositoryFindBy = jest.spyOn(
 export const fakePostRepositoryFindAll = jest.spyOn(
   FakePostRepository.prototype,
   "findAll"
+);
+
+export const fakePostRepositoryDelete = jest.spyOn(
+  FakePostRepository.prototype,
+  "delete"
 );

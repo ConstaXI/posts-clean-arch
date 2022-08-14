@@ -6,7 +6,7 @@ import FindAllPostsUseCase from "../../../src/business/useCases/post/FindAllPost
 import { Paginated } from "../../../src/domain/entities/utils/paginated";
 import { Post } from "../../../src/domain/entities/Post";
 
-describe("FindPostByIdUseCase", () => {
+describe("FindAllPostsUseCase", () => {
   let useCase: FindAllPostsUseCase;
 
   beforeAll(() => {
