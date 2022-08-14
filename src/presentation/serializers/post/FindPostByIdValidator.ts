@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsUUID } from "class-validator";
+import { IsUUID } from "class-validator";
 import AbstractSerializer from "../AbstractSerializer";
 
 export type InputFindPostByIdController = {
@@ -11,7 +11,6 @@ export default class FindPostByIdValidator extends AbstractSerializer<InputFindP
     Object.assign(this, data);
   }
 
-  @IsNotEmpty()
   @IsUUID()
   id: string;
 }
