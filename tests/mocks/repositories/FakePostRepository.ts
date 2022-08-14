@@ -1,20 +1,20 @@
-import ISavePost from "../../../src/business/repositories/post/ISavePost";
+import ISavePost from "../../../src/business/protocols/db/repositories/post/ISavePost";
 import {
-  InputSavePostRepository,
-  OutputSavePostRepository,
+  InputSavePost,
+  OutputSavePost,
 } from "../../../src/business/dto/repositories/post/save";
-import IFindPostBy from "../../../src/business/repositories/post/IFindPostBy";
+import IFindPostBy from "../../../src/business/protocols/db/repositories/post/IFindPostBy";
 import { makeFakePostEntity } from "../../fakes/post/PostEntity";
 import {
   InputFindPostBy,
   OutputFindPostBy,
 } from "../../../src/business/dto/repositories/post/findBy";
-import IFindAllPosts from "../../../src/business/repositories/post/IFindAllPosts";
+import IFindAllPosts from "../../../src/business/protocols/db/repositories/post/IFindAllPosts";
 import {
   InputFindAll,
   OutputFindAll,
 } from "../../../src/business/dto/repositories/post/findAll";
-import IDeletePost from "../../../src/business/repositories/post/IDeletePost";
+import IDeletePost from "../../../src/business/protocols/db/repositories/post/IDeletePost";
 import {
   InputDeletePost,
   OutputDeletePost,
@@ -23,7 +23,7 @@ import {
 export default class FakePostRepository
   implements ISavePost, IFindPostBy, IFindAllPosts, IDeletePost
 {
-  save(_post: InputSavePostRepository): Promise<OutputSavePostRepository> {
+  save(_post: InputSavePost): Promise<OutputSavePost> {
     return Promise.resolve();
   }
 

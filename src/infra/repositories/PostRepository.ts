@@ -1,27 +1,27 @@
-import ISavePost from "../../business/repositories/post/ISavePost";
+import ISavePost from "../../business/protocols/db/repositories/post/ISavePost";
 import {
-  InputSavePostRepository,
-  OutputSavePostRepository,
+  InputSavePost,
+  OutputSavePost,
 } from "../../business/dto/repositories/post/save";
 import MongoHelper from "../mongodb/MongoHelper";
-import IFindPostBy from "../../business/repositories/post/IFindPostBy";
+import IFindPostBy from "../../business/protocols/db/repositories/post/IFindPostBy";
 import {
   InputFindPostBy,
   OutputFindPostBy,
 } from "../../business/dto/repositories/post/findBy";
 import { Post, PostEntity } from "../../domain/entities/Post";
-import IFindAllPosts from "../../business/repositories/post/IFindAllPosts";
+import IFindAllPosts from "../../business/protocols/db/repositories/post/IFindAllPosts";
 import {
   InputFindAll,
   OutputFindAll,
 } from "../../business/dto/repositories/post/findAll";
-import IDeletePost from "../../business/repositories/post/IDeletePost";
+import IDeletePost from "../../business/protocols/db/repositories/post/IDeletePost";
 import { InputDeletePost } from "../../business/dto/repositories/post/delete";
 
 export default class PostRepository
   implements ISavePost, IFindPostBy, IFindAllPosts, IDeletePost
 {
-  async save(post: InputSavePostRepository): Promise<OutputSavePostRepository> {
+  async save(post: InputSavePost): Promise<OutputSavePost> {
     const collection = await MongoHelper.getCollection("post");
 
     await collection.updateOne(

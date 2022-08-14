@@ -4,7 +4,7 @@ import {
   InputDeletePostUseCase,
   OutputDeletePostUseCase,
 } from "../../dto/useCases/post/delete";
-import IDeletePost from "../../repositories/post/IDeletePost";
+import IDeletePost from "../../protocols/db/repositories/post/IDeletePost";
 
 export default class DeletePostUseCase
   implements IUseCase<InputDeletePostUseCase, OutputDeletePostUseCase>

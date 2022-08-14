@@ -3,7 +3,7 @@ import {
   InputFindAllPostsUseCase,
   OutputFindAllPostsUseCase,
 } from "../../dto/useCases/post/findAll";
-import IFindAllPosts from "../../repositories/post/IFindAllPosts";
+import IFindAllPosts from "../../protocols/db/repositories/post/IFindAllPosts";
 import { right } from "../../../shared/Either";
 
 export default class FindAllPostsUseCase

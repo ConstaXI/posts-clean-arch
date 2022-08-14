@@ -5,7 +5,11 @@ const config: Config.InitialOptions = {
   verbose: true,
   clearMocks: true,
   coverageDirectory: "coverage",
-  collectCoverageFrom: [],
+  collectCoverageFrom: [
+    "src/domain/entities/**/*",
+    "src/business/useCases/**/*",
+    "src/presentation/controllers/**/*",
+  ],
   coveragePathIgnorePatterns: [".d.ts"],
   coverageThreshold: {
     global: {

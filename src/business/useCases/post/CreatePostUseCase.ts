@@ -3,10 +3,10 @@ import {
   InputCreatePostUseCase,
   OutputCreatePostUseCase,
 } from "../../dto/useCases/post/create";
-import ISavePost from "../../repositories/post/ISavePost";
+import ISavePost from "../../protocols/db/repositories/post/ISavePost";
 import { PostEntity } from "../../../domain/entities/Post";
 import { right } from "../../../shared/Either";
-import { IGenerateUuid } from "../../services/IGenerateUuid";
+import { IGenerateUuid } from "../../protocols/services/IGenerateUuid";
 
 export default class CreatePostUseCase
   implements IUseCase<InputCreatePostUseCase, OutputCreatePostUseCase>

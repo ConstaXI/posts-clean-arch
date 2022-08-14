@@ -3,7 +3,7 @@ import {
   InputFindPostByIdUseCase,
   OutputFindPostByIdUseCase,
 } from "../../dto/useCases/post/findBy";
-import IFindPostBy from "../../repositories/post/IFindPostBy";
+import IFindPostBy from "../../protocols/db/repositories/post/IFindPostBy";
 import { left, right } from "../../../shared/Either";
 import notFound from "../../../domain/errors/notFound";
 

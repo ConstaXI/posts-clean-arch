@@ -3,7 +3,7 @@ import {
   InputEditPostUseCase,
   OutputEditPostUseCase,
 } from "../../dto/useCases/post/edit";
-import ISavePost from "../../repositories/post/ISavePost";
+import ISavePost from "../../protocols/db/repositories/post/ISavePost";
 import { PostEntity } from "../../../domain/entities/Post";
 import { right } from "../../../shared/Either";
 
