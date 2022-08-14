@@ -10,8 +10,15 @@ import {
   OutputFindPostBy,
 } from "../../business/dto/repositories/post/findBy";
 import { Post, PostEntity } from "../../domain/entities/Post";
+import IFindAllPosts from "../../business/repositories/post/IFindAllPosts";
+import {
+  InputFindAll,
+  OutputFindAll,
+} from "../../business/dto/repositories/post/findAll";
 
-export default class PostRepository implements ISavePost, IFindPostBy {
+export default class PostRepository
+  implements ISavePost, IFindPostBy, IFindAllPosts
+{
   async save(post: InputSavePostRepository): Promise<OutputSavePostRepository> {
     const collection = await MongoHelper.getCollection("post");
 
@@ -28,5 +35,21 @@ export default class PostRepository implements ISavePost, IFindPostBy {
     const post = await collection.findOne<Post>(target);
 
     return post ? new PostEntity(post) : null;
+  }
+
+  async findAll({ page, limit }: InputFindAll): Promise<OutputFindAll> {
+    const collection = await MongoHelper.getCollection("post");
+
+    const posts = await collection
+      .find<Post>({})
+      .skip(page)
+      .limit(limit)
+      .toArray();
+
+    return {
+      limit,
+      page,
+      results: posts,
+    };
   }
 }

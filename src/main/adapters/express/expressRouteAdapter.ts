@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import AbstractController from "../../../presentation/controllers/AbstractController";
-import { Either } from "../../../shared/either";
-import Err from "../../../shared/IError";
+import { Either } from "../../../shared/Either";
+import Err from "../../../shared/Err";
 
 const adaptRoute = (
   controller: AbstractController<unknown, Either<Err, unknown>>
@@ -10,6 +10,7 @@ const adaptRoute = (
     const request = {
       ...(req.body || {}),
       ...(req.params || {}),
+      ...(req.query || {}),
     };
 
     const result = await controller.handle(request);

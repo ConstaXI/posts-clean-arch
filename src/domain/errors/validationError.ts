@@ -1,4 +1,4 @@
-import Err from "../../shared/IError";
+import Err from "../../shared/Err";
 
 export default function validationError(details: unknown): Err {
   return new Err({

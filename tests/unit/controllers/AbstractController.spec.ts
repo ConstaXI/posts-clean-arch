@@ -1,8 +1,8 @@
 import { IsEmail, IsString, MinLength } from "class-validator";
 import AbstractController from "../../../src/presentation/controllers/AbstractController";
 import AbstractSerializer from "../../../src/presentation/serializers/AbstractSerializer";
-import { Either, left, right } from "../../../src/shared/either";
-import Err from "../../../src/shared/IError";
+import { Either, left, right } from "../../../src/shared/Either";
+import Err from "../../../src/shared/Err";
 import validationError from "../../../src/domain/errors/validationError";
 
 describe("Abstract Operator", () => {

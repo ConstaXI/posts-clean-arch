@@ -1,6 +1,6 @@
 import AbstractEntity from "./AbstractEntity";
-import { right, Right } from "../../shared/either";
-import { Timestamp } from "./timestamp";
+import { right, Right } from "../../shared/Either";
+import { Timestamp } from "./utils/timestamp";
 
 export type Post = {
   id?: string;

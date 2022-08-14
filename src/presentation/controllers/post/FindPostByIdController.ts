@@ -2,8 +2,8 @@ import AbstractController from "../AbstractController";
 import FindPostByIdValidator, {
   InputFindPostByIdController,
 } from "../../serializers/post/FindPostByIdValidator";
-import { Either, left, right } from "../../../shared/either";
-import Err from "../../../shared/IError";
+import { Either, left, right } from "../../../shared/Either";
+import Err from "../../../shared/Err";
 import { Post } from "../../../domain/entities/Post";
 import FindPostByIdUseCase from "../../../business/useCases/post/FindPostByIdUseCase";
 import validationError from "../../../domain/errors/validationError";

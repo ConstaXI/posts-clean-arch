@@ -5,13 +5,14 @@ import { InputCreatePostUseCase } from "../../../business/dto/useCases/post/crea
 export default class CreatePostValidator extends AbstractSerializer<InputCreatePostUseCase> {
   constructor(data: InputCreatePostUseCase) {
     super(data);
+    Object.assign(this, data);
   }
 
   @IsNotEmpty()
   title: string;
 
   @IsNotEmpty()
-  description: string;
+  body: string;
 
   @IsArray()
   tags: string[];

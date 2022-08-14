@@ -1,7 +1,7 @@
 import AbstractController from "../AbstractController";
 import { InputCreatePostEntity, Post } from "../../../domain/entities/Post";
-import { Either, left, right } from "../../../shared/either";
-import Err from "../../../shared/IError";
+import { Either, left, right } from "../../../shared/Either";
+import Err from "../../../shared/Err";
 import CreatePostValidator from "../../serializers/post/CreatePostValidator";
 import CreatePostUseCase from "../../../business/useCases/post/CreatePostUseCase";
 import validationError from "../../../domain/errors/validationError";

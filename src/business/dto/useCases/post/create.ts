@@ -1,5 +1,5 @@
-import { Either } from "../../../../shared/either";
-import Err from "../../../../shared/IError";
+import { Either } from "../../../../shared/Either";
+import Err from "../../../../shared/Err";
 import {
   InputCreatePostEntity,
   PostEntity,

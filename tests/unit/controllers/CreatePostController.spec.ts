@@ -5,7 +5,7 @@ import FakeGenerateObjectId from "../../mocks/services/FakeGenerateObjectId";
 import { Post } from "../../../src/domain/entities/Post";
 import CreatePostController from "../../../src/presentation/controllers/post/CreatePostController";
 import CreatePostValidator from "../../../src/presentation/serializers/post/CreatePostValidator";
-import Err from "../../../src/shared/IError";
+import Err from "../../../src/shared/Err";
 
 describe("CreatePostUseCase", () => {
   let controller: CreatePostController;

@@ -5,7 +5,7 @@ import {
 } from "../../dto/useCases/post/create";
 import ISavePost from "../../repositories/post/ISavePost";
 import { PostEntity } from "../../../domain/entities/Post";
-import { right } from "../../../shared/either";
+import { right } from "../../../shared/Either";
 import { IGenerateUuid } from "../../services/IGenerateUuid";
 
 export default class CreatePostUseCase

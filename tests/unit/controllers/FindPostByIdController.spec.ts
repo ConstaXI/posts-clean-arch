@@ -3,7 +3,7 @@ import FakePostRepository, {
   fakePostRepositoryFindBy,
 } from "../../mocks/repositories/FakePostRepository";
 import { Post } from "../../../src/domain/entities/Post";
-import Err from "../../../src/shared/IError";
+import Err from "../../../src/shared/Err";
 import FindPostByIdController from "../../../src/presentation/controllers/post/FindPostByIdController";
 import FindPostByIdUseCase from "../../../src/business/useCases/post/FindPostByIdUseCase";
 

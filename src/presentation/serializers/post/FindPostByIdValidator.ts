@@ -8,6 +8,7 @@ export type InputFindPostByIdController = {
 export default class FindPostByIdValidator extends AbstractSerializer<InputFindPostByIdController> {
   constructor(data: InputFindPostByIdController) {
     super(data);
+    Object.assign(this, data);
   }
 
   @IsNotEmpty()
