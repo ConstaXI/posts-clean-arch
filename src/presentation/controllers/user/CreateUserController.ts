@@ -9,7 +9,7 @@ import CreateUserUseCase from "../../../business/useCases/user/CreateUserUseCase
 import validationError from "../../../domain/errors/validationError";
 import FindUserByEmailUseCase from "../../../business/useCases/user/FindUserByEmailUseCase";
 import emailAlreadyExists from "../../../domain/errors/emailAlreadyExists";
-import passwordsDontMatch from "../../../domain/errors/PasswordsDontMatch";
+import passwordsDontMatch from "../../../domain/errors/passwordsDontMatch";
 
 export type OutputCreateUserController = Either<Err, User>;
 

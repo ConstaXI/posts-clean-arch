@@ -10,7 +10,7 @@ const config: Config.InitialOptions = {
     "src/business/useCases/**/*",
     "src/presentation/controllers/**/*",
   ],
-  coveragePathIgnorePatterns: [".d.ts"],
+  coveragePathIgnorePatterns: [".d.ts", "src/business/useCases/IUseCase.ts"],
   coverageThreshold: {
     global: {
       branches: 95,

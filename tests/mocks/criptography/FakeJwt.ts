@@ -10,3 +10,5 @@ export default class FakeJwt implements IGenerateToken, IDecrypter {
     return "fakeDecryptedId";
   }
 }
+
+export const fakeJwtDecrypt = jest.spyOn(FakeJwt.prototype, "decrypt");

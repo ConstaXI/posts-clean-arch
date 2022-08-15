@@ -4,7 +4,6 @@ import AbstractSerializer from "../AbstractSerializer";
 export type InputLogin = {
   email: string;
   password: string;
-  passwordConfirmation: string;
 };
 
 export default class LoginValidator extends AbstractSerializer<InputLogin> {

@@ -9,5 +9,4 @@ export const fakeInputAuthenticate: InputAuthentication = {
 export const fakeInputLogin: InputLogin = {
   email: "valid@email.com",
   password: "fakePassword",
-  passwordConfirmation: "fakePassword",
 };

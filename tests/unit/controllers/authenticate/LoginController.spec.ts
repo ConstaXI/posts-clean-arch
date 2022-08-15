@@ -27,6 +27,16 @@ describe("LoginController", () => {
     expect((accessToken.value as { token: string }).token).toBeDefined();
   });
 
+  it("Should pass along validation errors", async () => {
+    const error = await controller.handle({
+      email: "invalid",
+      password: "123456",
+    });
+    expect(error.isLeft()).toBeTruthy();
+    expect(error.value).toBeInstanceOf(Err);
+    expect((error.value as Err).body).toHaveProperty("details");
+  });
+
   it("Should pass along any error", async () => {
     fakeCompare.mockResolvedValueOnce(false);
     const accessToken = await controller.handle(fakeInputLogin);

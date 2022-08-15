@@ -8,7 +8,7 @@ import FakeBcrypt, {
 import FakeJwt from "../../../mocks/criptography/FakeJwt";
 import { fakeInputAuthenticate } from "../../../fakes/auth/fakeAuth";
 import notFound from "../../../../src/domain/errors/notFound";
-import forbidden from "../../../../src/domain/errors/forbidden";
+import wrongPassword from "../../../../src/domain/errors/wrongPassword";
 
 describe("AuthenticateUseCase", () => {
   let useCase: AuthenticateUseCase;
@@ -41,10 +41,10 @@ describe("AuthenticateUseCase", () => {
     expect(token.value).toEqual(notFound());
   });
 
-  it("Should return forbidden if password is wrong", async () => {
+  it("Should return wrongPassword if password is wrong", async () => {
     fakeCompare.mockResolvedValueOnce(false);
     const token = await useCase.execute(fakeInputAuthenticate);
     expect(token.isLeft()).toBeTruthy();
-    expect(token.value).toEqual(forbidden());
+    expect(token.value).toEqual(wrongPassword());
   });
 });

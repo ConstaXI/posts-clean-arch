@@ -6,9 +6,10 @@ import FakeUserRepository, {
 import CreateUserUseCase from "../../../../src/business/useCases/user/CreateUserUseCase";
 import FakeGenerateObjectId from "../../../mocks/services/FakeGenerateObjectId";
 import FakeBcrypt from "../../../mocks/criptography/FakeBcrypt";
-import { fakeInputCreateUserEntity } from "../../../fakes/user/UserEntity";
+import { fakeInputCreateUserController } from "../../../fakes/user/UserEntity";
 import emailAlreadyExists from "../../../../src/domain/errors/emailAlreadyExists";
 import Err from "../../../../src/shared/Err";
+import passwordsDontMatch from "../../../../src/domain/errors/passwordsDontMatch";
 
 describe("CreateUserController", () => {
   let controller: CreateUserController;
@@ -28,20 +29,32 @@ describe("CreateUserController", () => {
     const user = await controller.handle({
       email: "invalidEmail",
       password: "anything",
+      passwordConfirmation: "anything",
     });
     expect(user.isLeft()).toBeTruthy();
     expect(user.value).toBeInstanceOf(Err);
   });
 
+  it("Should return error if passwords dont match", async () => {
+    const user = await controller.handle({
+      email: "valid@email.com",
+      password: "anything",
+      passwordConfirmation: "different",
+    });
+    expect(user.isLeft()).toBeTruthy();
+    expect(user.value).toBeInstanceOf(Err);
+    expect(user.value).toEqual(passwordsDontMatch());
+  });
+
   it("Should be able to create a user", async () => {
     fakeUserRepositoryFindBy.mockResolvedValueOnce(null);
-    const user = await controller.handle(fakeInputCreateUserEntity);
+    const user = await controller.handle(fakeInputCreateUserController);
     expect(user.isRight()).toBeTruthy();
     expect(user.value).toBeDefined();
   });
 
   it("Should return alreadyExistsError if email is already in use", async () => {
-    const user = await controller.handle(fakeInputCreateUserEntity);
+    const user = await controller.handle(fakeInputCreateUserController);
     expect(user.isLeft()).toBeTruthy();
     expect(user.value).toEqual(emailAlreadyExists());
   });
