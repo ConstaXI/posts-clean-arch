@@ -5,14 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main/server.ts",
-    "build": "rimraf dist && tsc",
-    "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
-    "up": "npm run build && docker compose up -d",
     "lint": "eslint . --ext=.ts",
     "test": "jest --silent --noStackTrace --runInBand",
     "test:verbose": "jest --runInBand",
-    "test:ci": "npm test -- --coverage",
-    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
+    "test:ci": "npm test -- --coverage"
   },
   "repository": {
     "type": "git",
