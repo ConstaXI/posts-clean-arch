@@ -1,4 +1,4 @@
-import { IsNumber, IsOptional, IsPositive, Max } from "class-validator";
+import { IsNumber, IsPositive, Max } from "class-validator";
 import AbstractSerializer from "../AbstractSerializer";
 
 export type InputFindAllPostsController = {
