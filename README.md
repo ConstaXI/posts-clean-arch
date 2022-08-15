@@ -1,3 +1,27 @@
+# <strong>How to start it</strong>
+After clone the project, install it's dependencies with npm or yarn
+
+```
+npm install
+```
+or
+```
+yarn
+```
+In project's directory, create a .env file and add the environment variables. To help you, there is a .env.example with the default values
+```env
+MONGO_URL=mongodb://localhost:27017/posts
+PORT=3000
+JWT_SECRET=secret
+```
+Now, just start it with
+```
+yarn dev
+```
+or
+```
+npm run dev
+```
 # <strong>Routes</strong>
 ## <strong>Posts</strong>
 #### <strong>POST /api/posts</strong>
