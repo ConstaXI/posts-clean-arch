@@ -22,9 +22,26 @@ or
 ```
 npm run dev
 ```
+<strong>IMPORTANT</strong>: There is an Insomnia Collection in the docs folder ;)
+# <strong>Authentication</strong>
+If a route is authenticated, you must provide a Bearer Token in the headers. Example:
+```json
+{
+	"authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhODYwNDRjLWQ4YTQtNDYzZC1iNzY4LTlhMzQ4OGIyYzk4NyIsImlhdCI6MTY2MDUxMTEwOX0.IUrg-peWEMKOz2CToVhoupYlVVcHYQFeZQC5bOeRkys",
+}
+```
+# <strong>Login</strong>
+#### <strong>POST /api/login</strong>
+```ts
+{
+	"email": string,
+	"password": string
+}
+```
 # <strong>Routes</strong>
 ## <strong>Posts</strong>
-#### <strong>POST /api/posts</strong>
+#### <strong>POST /api/posts - AUTHENTICATION HEADERS REQUIRED</strong>
+* You must be authenticated
 ```ts
 {
 	"title": string,
@@ -41,7 +58,8 @@ limit = 10
 * First page is 0, maximum limit is 20.
 #### <strong>GET	/api/posts/:id</strong>
 * id must be a valid uuid
-#### <strong>PUT	/api/posts/:id</strong>
+#### <strong>PUT	/api/posts/:id - AUTHENTICATION HEADERS REQUIRED</strong>
+* You must be authenticated
 * id must be a valid uuid
 ```ts
 {
@@ -50,7 +68,7 @@ limit = 10
 	"tags": string[] | undefined
 }
 ```
-#### <strong>DELETE /api/posts/:id</strong>
+#### <strong>DELETE /api/posts/:id - AUTHENTICATION HEADERS REQUIRED</strong>
 * id must be a valid uuid
 ## <strong>Users</strong>
 #### <strong>POST /api/users</strong>
@@ -59,14 +77,6 @@ limit = 10
 	"email": string,
 	"password": string,
 	"passwordConfirmation": string
-}
-```
-## <strong>Login</strong>
-#### <strong>POST /api/login</strong>
-```ts
-{
-	"email": string,
-	"password": string
 }
 ```
 
