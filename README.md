@@ -32,7 +32,6 @@ npm run dev
 	"tags": string[]
 }
 ```
-
 #### <strong>GET	/api/posts?limit=10&page=0</strong>
 * limit and page are optional query params, if you don't pass them, the default is:
 ```
@@ -44,6 +43,13 @@ limit = 10
 * id must be a valid uuid
 #### <strong>PUT	/api/posts/:id</strong>
 * id must be a valid uuid
+```ts
+{
+	"title": string | undefined,
+	"body": string | undefined,
+	"tags": string[] | undefined
+}
+```
 #### <strong>DELETE /api/posts/:id</strong>
 * id must be a valid uuid
 ## <strong>Users</strong>
