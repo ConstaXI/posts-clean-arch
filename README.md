@@ -25,7 +25,7 @@ npm run dev
 # <strong>Routes</strong>
 ## <strong>Posts</strong>
 #### <strong>POST /api/posts</strong>
-```json
+```ts
 {
 	"title": string,
 	"body": string,
@@ -48,7 +48,7 @@ limit = 10
 * id must be a valid uuid
 ## <strong>Users</strong>
 #### <strong>POST /api/users</strong>
-```json
+```ts
 {
 	"email": string,
 	"password": string,
@@ -57,7 +57,7 @@ limit = 10
 ```
 ## <strong>Login</strong>
 #### <strong>POST /api/login</strong>
-```json
+```ts
 {
 	"email": string,
 	"password": string
