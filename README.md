@@ -94,7 +94,7 @@ Err and Either are special types, check the folder "src/shared".
 ### <strong>Highly Scalable and Maintainable</strong>
 The main problem in programming is not to make things work, but to write things that work and are maintainable and readable for other developers. The use of SOLID principles, Clean Architecture and automated tests made that application super easy to maintain. Want to change mongoDb to some SQL-based database? Ok, it's just easy to do. Even more, want to completely remove Express and use Serverless or Fastify? Just do it, the application is ready.
 ### <strong>Typescript and ESLint</strong>
-Typescript and Eslint can be your friends, since you use them correctly. By using Typescript features such as utility types, type checking and etc, you can highly increase the readabily and reusability of the code. Also, the use of ESLint makes the application predictable to other developers, due to ESLint be a set of standards made by the Typescript Community.
+Typescript and Eslint can be your friends, since you use them correctly. By using Typescript features such as utility types, type checking and etc, you can highly increase the readability and usability of the code. Also, the use of ESLint makes the application predictable to other developers, due to ESLint be a set of standards made by the Typescript Community.
 # <strong>Known Issues, sorry :,(</strong>
 * Sometimes the application may not return the most appropriate error code, like returning unauthorized instead of forbidden.
 * Lack of Swagger, I just didn't have time to implement.
